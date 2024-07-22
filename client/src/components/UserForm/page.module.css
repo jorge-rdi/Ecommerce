@@ -1,0 +1,17 @@
+.input {
+    border-color: transparent;
+    background: transparent;
+    border-radius: 20px;
+}
+
+.link {
+    text-decoration: none;
+    box-shadow: none;
+    color: #FFF;
+}
+
+.image {
+    background: rgb(183, 110, 166);
+    background: linear-gradient(36deg, rgba(183, 110, 166, 1) 0%, rgba(108, 101, 179, 1) 50%, rgba(64, 95, 186, 1) 100%);
+    background-repeat: no-repeat;
+}

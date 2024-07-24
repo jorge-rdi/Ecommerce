@@ -256,7 +256,7 @@ const ShopPage = () => {
                                     }}
                                     sx={sty}
                                     name="search"
-                                    label="Search"
+                                    label="Buscar"
                                 />
                             </Grid>
                             <Grid item>
@@ -269,7 +269,7 @@ const ShopPage = () => {
                                         aria-controls="panel1-content"
                                         id="panel1-header"
                                     >
-                                        Filter
+                                        Filtros
                                     </AccordionSummary>
                                     <AccordionDetails
                                     >
@@ -282,7 +282,7 @@ const ShopPage = () => {
                                             onChange={handleSizeFilterChange}
                                         >
                                             <MenuItem value="All">
-                                                Select All
+                                                Todos
                                             </MenuItem>
                                             <MenuItem value="S">
                                                 S
@@ -307,7 +307,7 @@ const ShopPage = () => {
                                             label="Categoria"
                                         >
                                             <MenuItem value="All">
-                                                Select All
+                                                Todos
                                             </MenuItem>
                                             <MenuItem value="Casual">
                                                 Casual
@@ -332,13 +332,13 @@ const ShopPage = () => {
                                             onChange={handlePriceFilterChange}
                                         >
                                             <MenuItem value="All">
-                                                Select All
+                                                Todos
                                             </MenuItem>
                                             <MenuItem value="Lower">
-                                                Lower
+                                                Mas barato primero
                                             </MenuItem>
                                             <MenuItem value="Highest">
-                                                Highest
+                                                Mas costoso primero
                                             </MenuItem>
                                         </TextField>
                                     </AccordionDetails>

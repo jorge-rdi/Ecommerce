@@ -239,7 +239,7 @@ const ProductForm = () => {
                                             }}
                                             sx={sty}
                                             name="stock"
-                                            label="stock"
+                                            label="Stock"
                                             type="number"
                                             fullWidth
                                             error={error?.stock ? true : false}

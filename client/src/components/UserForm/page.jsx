@@ -111,7 +111,7 @@ const UserForm = ({ onSubmit, preset = {}, isSignUp }) => { //preset trae data
                                     }}
                                     sx={sty}
                                     name="firstName"
-                                    label="First Name"
+                                    label="Nombre"
                                     fullWidth
                                     value={firstName}
                                     onChange={(e) => {
@@ -132,7 +132,7 @@ const UserForm = ({ onSubmit, preset = {}, isSignUp }) => { //preset trae data
                                     }}
                                     sx={sty}
                                     name="lastName"
-                                    label="Last Name"
+                                    label="Apellido"
                                     fullWidth
                                     value={lastName}
                                     onChange={(e) => {
@@ -238,9 +238,9 @@ const UserForm = ({ onSubmit, preset = {}, isSignUp }) => { //preset trae data
                                 sx={{
                                     mb: 3,
                                     borderRadius: '50px',
-                                    backgroundColor: '#946FB5',
+                                    backgroundColor: ' #333333',
                                     '&:hover': {
-                                        backgroundColor: '#946FB5',
+                                        backgroundColor: ' #333333',
                                     },
                                 }}
                                 onClick={handleFormSubmit}
@@ -254,19 +254,19 @@ const UserForm = ({ onSubmit, preset = {}, isSignUp }) => { //preset trae data
                             {isSignUp ?
                                 (
                                     <Link href="/login" className={styles.link}>
-                                        Ya tienes una cuenta? Inicia sesion.
+                                        ¿Ya tienes una cuenta? Inicia sesion.
                                     </Link>
                                 ) :
                                 (
                                     <Grid container spacing={2} textAlign="right"  >
                                         <Grid Grid item xs={12} sm={12} >
                                             <Link href="/register" className={styles.link}>
-                                                Aun no tienes una cuenta? Registrate.
+                                                ¿Aun no tienes una cuenta? Registrate.
                                             </Link>
                                         </Grid>
                                         <Grid Grid item xs={12} sm={12} mt={2} >
                                             <Link href="/passwordReset"className={styles.link}>
-                                                Olvidaste tu contraseña?
+                                                ¿Olvidaste tu contraseña?
                                             </Link>
                                         </Grid>
                                     </Grid>

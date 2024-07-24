@@ -82,7 +82,10 @@ module.exports.login = async (req, res) => {
         //si no existe y retorno resultado 
         if (user == null) {
             res.status(404);
-            res.json({ email: { message: "Usuario no encontrado" } });
+            res.json({ 
+                email: { message: " " },
+                password: { message: "Usuario o contraseña incorrecta" }
+            });
             return
         }
         // Si exite se revisa contrasenia 
@@ -90,7 +93,10 @@ module.exports.login = async (req, res) => {
         //si no coincide paro el resultado
         if (validatePassword === false) {
             res.status(401);
-            res.json({ password: { message: "Contraseña incorrecta" } });
+            res.json({ 
+                email: { message: " " },
+                password: { message: "Usuario o contraseña incorrecta" }
+            });
             console.log(validatePassword);
             return
         }
@@ -128,7 +134,7 @@ module.exports.cookie = async (req, res) => {
 module.exports.loggout = async (req, res) => {
     try {
         res.clearCookie("userToken");
-        res.json({ message: "logout succesfully" });
+        res.json({ message: "Se ha cerrado sesion correctamente" });
         res.status(200);
     } catch (error) {
         res.json({ message: error });
@@ -136,70 +142,7 @@ module.exports.loggout = async (req, res) => {
 }
 
 
-// PASSWORD
-/* module.exports.Password = async (req, res) => {
-    const user = await User.findOne({ email: req.body.email });
-    try {
-        //se busca el usuario por email
-        if (!user) {
-            res.status(404);
-            return res.json({ email: { message: "No podemos encontrar al email proporcionado!" } }); // IMPORTANTE
-        }
-        //se genera un token random para el usuario
-        const resetToken = user.createResetPasswordToken();
-        await user.save({ validateBeforeSave: false }); //desactiva las validaciones antes de guardar el user
-        //enviar al usuario el token
-        const resetUrl = `${process.env.API_URL}/account/resetPassword/${resetToken}`;
-        const message = resetUrl
-        await sendEmail({
-            email: user.email,
-            subject: 'Solicitud de cambio de contraseña',
-            message: message
-        });
-        return res.status(200).json({
-            status: "success",
-            message: "El link para cambiar su contraseña, fue mandado a su email!"
-        });
-    } catch (error) {
-        return res.status(500).json({ message: "Ha ocurrido un error al mandar el email. Intentelo mas tarde." }); // IMPORTANTE
-    }
-} */
-/*
-**IMPORTANTE NOTA**
-Es importante colocar return, debido a que 
-En el codigo, puede haber varios lugares donde se manda la respuesta al cliente  de esta manera (res.json() o res.status().json()), y es posible
-que el código siga ejecutándose después de haber enviado una respuesta.
-Después de enviar una respuesta en el bloque if (!user), hay que agregar un return para salir de la función
-y evitar que el código siguiente también intente enviar una respuesta.
-*/
-/* module.exports.resetPassword = async (req, res) => {
-    const date = Date.now();
-    try {
-        const token = crypto.createHash('sha256').update(req.params.token).digest('hex');
-        console.log('Token:', token);
-        console.log('Date:', date);
-        const user = await User.findOne({ passwordResetToken: token, passwordResetTokenExpire: { $gt: date } });
-        console.error(user);
-        if (!user) {
-            return res.status(404).json({ message: "El link es invalido o ha expirado!" });
-        }
-        user.password = req.body.password;
-        user.confirmPassword = req.body.confirmPassword;
-        user.passwordResetToken = undefined;
-        user.passwordResetTokenExpire = undefined;
-        user.passwordChangeAt = Date.now();
-        await user.save({ validateBeforeSave: true });
-        const newJWT = jwt.sign({
-            _id: user._id
-        }, secretKey, { expiresIn: "60min" });
-        res.cookie("userToken", newJWT, secretKey, { httpOnly: true });
-        res.status(200);
-        res.json({ message: "logged ok" })
-    } catch (error) {
-        console.error(error.message);
-        return res.status(500).json({ message: error });
-    }
-} */
+
 
 //-----------------------------RESET PASSWORD-------------------------------------------------->
 
@@ -212,7 +155,7 @@ module.exports.passwordResetToken = async (req, res) => {
         const user = await User.findOne({ email: email }); // busca al usuario que tenga el email igual al email quitado del req.query
         if (!user) {
             res.status(401);
-            res.json({ error: "usuario no encontrado!" });
+            res.json({ error: "Usuario no encontrado!" });
             return;
         }
         //Buscamos si el usuario que encontramos tiene el token
@@ -249,7 +192,7 @@ module.exports.passwordReset = async (req, res) => {
         const user = await User.findOne({ email: email });
         if (!user) {
             res.status(401);
-            res.json({ error: "usuario no encontrado!" });
+            res.json({ error: "Usuario no encontrado!" });
             return;
         }
         const activeToken = await PasswordToken.findOne({ user: user._id });//busca un token que coincida con el user id

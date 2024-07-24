@@ -119,7 +119,7 @@ const PasswordResetForm = () => {
                     {activeStep === steps.length ? (
                         <Box>
                             <Typography sx={{ mt: 2, mb: 1 }} color={'white'}>
-                                Password Changed Succesfully
+                                Contraseña cambiada correctamente
                             </Typography>
                             <Box sx={{ display: 'flex', flexDirection: 'row', pt: 2 }}>
                                 <Box sx={{ flex: '1 1 auto' }} />
@@ -183,12 +183,12 @@ const PasswordResetForm = () => {
                                         sx={{ flexGrow: 1, pt: 8, bgcolor: 'transparent' }}
                                         nextButton={
                                             <Button size="small" onClick={handleNext} disabled={activeStep === 3} sx={{ color: '#FFF' }}>
-                                                {activeStep === steps.length - 1 ? 'Finish' : 'Next >'}
+                                                {activeStep === steps.length - 1 ? 'Finalizar' : 'Siguiente >'}
                                             </Button>
                                         }
                                         backButton={
                                             <Button size="small" onClick={handleBack} sx={{ color: '#FFF' }} disabled={activeStep === 0 || activeStep === 1} >
-                                                {activeStep === steps.length - 1 ? '< Back' : '< Back'}
+                                                {activeStep === steps.length - 1 ? '< Volver' : '< Volver'}
                                             </Button>
                                         }
                                     />
@@ -198,7 +198,7 @@ const PasswordResetForm = () => {
                                 <Grid item>
                                     <Grid Grid item xs={12} sm={12} >
                                         <Link href="/register" className={styles.link}>
-                                            Volver al Registro?
+                                            Volver al Registro
                                         </Link>
                                     </Grid>
                                 </Grid>

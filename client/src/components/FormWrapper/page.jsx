@@ -50,7 +50,7 @@ const FormWrapper = ({ children }) => {
                             backgroundColor: 'rgba(0,0,0,.1)'
             }}
                     >
-                        <Avatar sx={{ m: 1, bgcolor: '#946FB5' }}>
+                        <Avatar sx={{ m: 1, bgcolor: '#333333' }}>
                             <LockOutlinedIcon />
                         </Avatar>
                         {children}

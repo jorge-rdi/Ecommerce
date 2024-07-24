@@ -23,8 +23,8 @@ import Swal from 'sweetalert2';
 import { clearCart } from '@/lib/features/carts/cartSlice';
 import { useDispatch } from 'react-redux';
 import { clearUser } from '@/lib/features/users/userSlice';
-const pages = ['Products', 'Home'];
-const settings = ['Logout', 'Login'];
+const pages = ['Productos', 'Inicio'];
+const settings = ['Cerrar Sesión', 'Iniciar Sesión'];
 const href = ['/shop', '/',]
 
 function NavBar() {
@@ -80,7 +80,7 @@ function NavBar() {
     };
 
     return (
-        <AppBar sx={{ bgcolor: 'transparent', boxShadow: 'none', color: 'black', background: 'rgba(255, 255, 255, 0.5)', backdropFilter: "blur(5px)" }}>
+        <AppBar sx={{ bgcolor: 'transparent', boxShadow: 'none', color: 'green', background: 'rgba(255, 255, 255, 0.5)', backdropFilter: "blur(5px)" }}>
             <Container maxWidth="xl" position="sticky">
                 <Toolbar disableGutters>
                     <Typography
@@ -193,7 +193,7 @@ function NavBar() {
                     </Box>
 
                     <Box sx={{ flexGrow: 0 }}>
-                        <Tooltip title="Open settings">
+                        <Tooltip title="Usuario">
                             <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>
                                 <Avatar alt="Remy Sharp" sx={{ color: '#946FB5', bgcolor: 'lightgray' }} />
                             </IconButton>

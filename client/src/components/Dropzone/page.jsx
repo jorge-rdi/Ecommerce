@@ -31,7 +31,7 @@ const Dropzone = ({ onFilesUploaded }) => {
                     iconColor: "white",
                     position: "bottom",
                     color: "white",
-                    title: "se ha subido la imagen correctamente",
+                    title: "Se ha subido la imagen correctamente",
                     background: "#a5dc86",
                     showConfirmButton: false,
                     timer: 2000,
@@ -106,9 +106,9 @@ const Dropzone = ({ onFilesUploaded }) => {
                     sx={{
                         mt: 3,
                         borderRadius: '50px',
-                        backgroundColor: '#946FB5',
+                        backgroundColor: '#333333',
                         '&:hover': {
-                            backgroundColor: '#946FB5',
+                            backgroundColor: '#555555',
                         },
                         color: 'white'
                     }}
